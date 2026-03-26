@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLACKJACK</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="table">
+        <h1>♠ BLACKJACK ♠</h1>
+        <div class="subtitle">Vegas Rules &nbsp;·&nbsp; Dealer Stands Soft 17</div>
+
+        <div id="stats">
+            <div class="stat"><div class="stat-label">BALANCE</div><div class="stat-val" id="balance">$500</div></div>
+            <div class="stat"><div class="stat-label">BET</div><div class="stat-val" id="bet-display">$0</div></div>
+            <div class="stat"><div class="stat-label">WINS</div><div class="stat-val" id="win-count">0</div></div>
+            <div class="stat"><div class="stat-label">HANDS</div><div class="stat-val" id="hand-count">0</div></div>
+        </div>
+
+        <div class="zone">
+            <div class="zone-label">🎩 Dealer <span class="score-badge" id="dealer-score"></span></div>
+            <div class="hand" id="dealer-hand"></div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div id="message">Welcome to the Table</div>
+
+        <div class="divider"></div>
+
+        <div class="zone">
+            <div class="zone-label">👤 You <span class="score-badge" id="player-score"></span></div>
+            <div class="hand" id="player-hand"></div>
+        </div>
+
+        <!-- Betting -->
+        <div id="chips">
+            <div class="chip" data-val="5">$5</div>
+            <div class="chip" data-val="10">$10</div>
+            <div class="chip" data-val="25">$25</div>
+            <div class="chip" data-val="50">$50</div>
+            <div class="chip" data-val="100">$100</div>
+        </div>
+        <div id="current-bet"></div>
+
+        <div id="actions">
+            <button class="btn btn-gold" id="btn-deal" onclick="deal()">Deal</button>
+            <button class="btn btn-green" id="btn-hit" onclick="hit()" disabled>Hit</button>
+            <button class="btn btn-red" id="btn-stand" onclick="stand()" disabled>Stand</button>
+            <button class="btn btn-blue" id="btn-double" onclick="doubleDown()" disabled>Double</button>
+            <button class="btn btn-gold" id="btn-all-in" onclick="allIn()">All In</button>
+            <button class="btn btn-gray" id="btn-clear" onclick="clearBet()">Clear Bet</button>
+        </div>
+
+        <div id="history"></div>
+    </div>
+
+    <div id="help-btn-wrap">
+        <button class="btn btn-gold" id="btn-help" onclick="showHelp()">How to Play</button>
+    </div>
+
+    <div id="help-popup" class="hidden">
+        <div id="help-box">
+            <h2>How to Play Blackjack</h2>
+            <p>Get as close to 21 as possible without going over.</p>
+            <p>Number cards are worth their number.</p>
+            <p>J, Q, and K are worth 10.</p>
+            <p>Aces count as 11 unless that would make you bust, then they count as 1.</p>
+            <p><strong>Hit</strong> gives you another card.</p>
+            <p><strong>Stand</strong> ends your turn.</p>
+            <p><strong>Double</strong> doubles your bet, gives one more card, then ends your turn.</p>
+            <p><strong>All In</strong> adds all your chips into the current bet.</p>
+            <p>The dealer must draw until reaching at least 17.</p>
+            <button class="btn btn-gold" onclick="closeHelp()">Close</button>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
