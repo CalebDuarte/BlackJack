@@ -354,6 +354,13 @@ function resolveGame() {
   gamePhase = 'betting';
 
   updateBalance();
+  if (balance <= 0) {
+    setTimeout(() => {
+      balance = 500; bet = 0; wins = 0; hands = 0;
+      updateBalance();
+      setMessage("Out of chips! Reloading $500...", 'push');
+    }, 2000);
+  }
   setButtons();
 }
 
